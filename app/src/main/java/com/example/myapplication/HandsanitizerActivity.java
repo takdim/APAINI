@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Handsanitizer extends AppCompatActivity {
+public class HandsanitizerActivity extends AppCompatActivity {
 
     private Button btnPdf;
     @Override
@@ -20,7 +20,7 @@ public class Handsanitizer extends AppCompatActivity {
         btnPdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent a = new Intent(Handsanitizer.this, PDFHandsanitizer.class);
+                Intent a = new Intent(HandsanitizerActivity.this, PDFHandsanitizerActivity.class);
                 startActivity(a);
             }
         });

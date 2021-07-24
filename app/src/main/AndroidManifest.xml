@@ -16,11 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PDFHandsanitizer" />
-        <activity android:name=".Handsanitizer" />
-        <activity android:name=".Info" />
-        <activity android:name=".PDFList" />
-        <activity android:name=".Posko" />
+        <activity android:name=".PDFHandsanitizerActivity" />
+        <activity android:name=".HandsanitizerActivity" />
+        <activity android:name=".InfoAppActivity" />
+        <activity android:name=".EReferencesPDFActivity" />
+        <activity android:name=".Posko3Activity" />
         <activity android:name=".MainActivity" />
     </application>
 

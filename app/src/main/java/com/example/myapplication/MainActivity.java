@@ -63,19 +63,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.img1:
-                Intent o = new Intent(MainActivity.this, Posko.class);
+                Intent o = new Intent(MainActivity.this, Posko3Activity.class);
                 startActivity(o);
                 break;
             case R.id.img2:
-                Intent q = new Intent(MainActivity.this, PDFList.class);
+                Intent q = new Intent(MainActivity.this, EReferencesPDFActivity.class);
                 startActivity(q);
                 break;
             case R.id.img3:
-                Intent p = new Intent(MainActivity.this, Handsanitizer.class);
+                Intent p = new Intent(MainActivity.this, HandsanitizerActivity.class);
                 startActivity(p);
                 break;
             case R.id.img4:
-                Intent i = new Intent(MainActivity.this, Info.class);
+                Intent i = new Intent(MainActivity.this, InfoAppActivity.class);
                 startActivity(i);
                 break;
         }
