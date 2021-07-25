@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -58,6 +59,7 @@ public class EReferencesPDFActivity extends AppCompatActivity implements PDFAdap
                     // update the list
                     PDFModel pdf = new PDFModel();
                     pdf.setUrlImage(data.child("url").getValue().toString());
+                    pdf.setKey(data.getKey());
 
                     // append to list
                     pdfList.add(pdf);
@@ -75,6 +77,8 @@ public class EReferencesPDFActivity extends AppCompatActivity implements PDFAdap
 
     @Override
     public void itemClicked(PDFModel pdf) {
-
+        Intent goToPdfViewer = new Intent(EReferencesPDFActivity.this, PDFViewerActivity.class);
+        goToPdfViewer.putExtra(PDFViewerActivity.EXTRA_PDF_KEY, pdf.getKey());
+        startActivity(goToPdfViewer);
     }
 }
