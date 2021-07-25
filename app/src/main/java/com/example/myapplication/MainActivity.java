@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,66 +19,66 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageView img1, img2, img3, img4;
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference myRef = database.getReference();
+    private ImageView btnPosko3, btnEPdf, btnHandsanitizer, btnInfoApp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        img1 = findViewById(R.id.img1);
-        img2 = findViewById(R.id.img2);
-        img3 = findViewById(R.id.img3);
-        img4 = findViewById(R.id.img4);
+        btnPosko3 = findViewById(R.id.btn_posko3);
+        btnEPdf = findViewById(R.id.btn_e_pdf);
+        btnHandsanitizer = findViewById(R.id.btn_handsanitizer);
+        btnInfoApp = findViewById(R.id.btn_info_app);
 
-        LoadImage("ImageOne", "url", img1);
-        LoadImage("ImageTwo", "url", img2);
-        LoadImage("ImageThree", "url", img3);
-        LoadImage("ImageFour", "url", img4);
-
-        img1.setOnClickListener(this);
-        img2.setOnClickListener(this);
-        img3.setOnClickListener(this);
-        img4.setOnClickListener(this);
+        btnPosko3.setOnClickListener(this);
+        btnEPdf.setOnClickListener(this);
+        btnHandsanitizer.setOnClickListener(this);
+        btnInfoApp.setOnClickListener(this);
 
     }
 
-    private void LoadImage(String s, String s1, ImageView img) {
-        DatabaseReference getImage = myRef.child("MainImage").child(s).child(s1);
-        getImage.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull @org.jetbrains.annotations.NotNull DataSnapshot snapshot) {
-                String url = snapshot.getValue(String.class);
-                Glide.with(MainActivity.this).load(url).into(img);
-            }
-
-            @Override
-            public void onCancelled(@NonNull @org.jetbrains.annotations.NotNull DatabaseError error) {
-
-            }
-        });
-    }
-
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.img1:
+            case R.id.btn_posko3:
                 Intent o = new Intent(MainActivity.this, Posko3Activity.class);
                 startActivity(o);
                 break;
-            case R.id.img2:
+            case R.id.btn_e_pdf:
                 Intent q = new Intent(MainActivity.this, EReferencesPDFActivity.class);
                 startActivity(q);
                 break;
-            case R.id.img3:
+            case R.id.btn_handsanitizer:
                 Intent p = new Intent(MainActivity.this, HandsanitizerActivity.class);
                 startActivity(p);
                 break;
-            case R.id.img4:
+            case R.id.btn_info_app:
                 Intent i = new Intent(MainActivity.this, InfoAppActivity.class);
                 startActivity(i);
                 break;
         }
     }
+
+//    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+//    private DatabaseReference myRef = database.getReference();
+//        LoadImage("ImageOne", "url", btnPosko3);
+//        LoadImage("ImageTwo", "url", btnEPdf);
+//        LoadImage("ImageThree", "url", btnHandsanitizer);
+//        LoadImage("ImageFour", "url", btnInfoApp);
+//    private void LoadImage(String s, String s1, ImageView img) {
+//        DatabaseReference getImage = myRef.child("MainImage").child(s).child(s1);
+//        getImage.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull @org.jetbrains.annotations.NotNull DataSnapshot snapshot) {
+//                String url = snapshot.getValue(String.class);
+//                Glide.with(MainActivity.this).load(url).into(img);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull @org.jetbrains.annotations.NotNull DatabaseError error) {
+//
+//            }
+//        });
+//    }
 }
