@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PDFHandsanitizerActivity" />
+        <activity android:name=".PDFViewerActivity" />
         <activity android:name=".HandsanitizerActivity" />
         <activity android:name=".InfoAppActivity" />
         <activity android:name=".EReferencesPDFActivity" />

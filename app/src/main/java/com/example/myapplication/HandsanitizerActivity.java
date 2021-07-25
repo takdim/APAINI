@@ -10,19 +10,17 @@ import android.widget.Button;
 public class HandsanitizerActivity extends AppCompatActivity {
 
     private Button btnPdf;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handsanitizer);
 
         btnPdf = findViewById(R.id.btnPdf);
-
-        btnPdf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent a = new Intent(HandsanitizerActivity.this, PDFHandsanitizerActivity.class);
-                startActivity(a);
-            }
+        btnPdf.setOnClickListener(v -> {
+            Intent goToPdfViewer = new Intent(HandsanitizerActivity.this, PDFViewerActivity.class);
+            goToPdfViewer.putExtra(PDFViewerActivity.EXTRA_PDF_KEY, "Handsanitizer");
+            startActivity(goToPdfViewer);
         });
     }
 }
